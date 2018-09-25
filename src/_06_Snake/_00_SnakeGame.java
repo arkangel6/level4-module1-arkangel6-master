@@ -134,7 +134,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		
 		if(e.getKeyCode() == KeyEvent.VK_SPACE){
 			
-				snake.feed();
+				//snake.feed();
 			
 		}
 		
@@ -198,11 +198,13 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		}
 		//3. if the location of the head is equal to the location of the food,
 		// 	 feed the snake and set the food location
-		if(snake.getHeadLocation() == foodLocation) {
+		if(snake.getHeadLocation().x == foodLocation.x && snake.getHeadLocation().y == foodLocation.y) {
 			System.out.println("food");
-			snake.feed();
+			snake.feed(foodLocation);
 			setFoodLocation();
 		}
+		System.out.println(foodLocation.x + " " + foodLocation.y);
+		System.out.println(snake.getHeadLocation().x + " " + snake.getHeadLocation().y);
 		//4. call panel.repaint();
 		panel.repaint();
 	}
